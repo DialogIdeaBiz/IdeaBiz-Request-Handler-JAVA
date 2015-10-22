@@ -47,14 +47,11 @@ Please refer `Main.java`
         
         IdeaBizAPIHandler ideaBizAPIHandler = new IdeaBizAPIHandler();
         
-        String body = "{\n" +
-                "  \"msisdn\": [\n" +
-                "    \"94777335488\"\n" +
-                "  ]\n" +
-                "}";
+             String body = "{ "msisdn": ["94777123455] }";
+             String urlPra = "";
 
         try {
-          ideaBizAPIHandler.sendAPICall(url,requestMethod,body,"");
+          ideaBizAPIHandler.sendAPICall(url,requestMethod,body,urlPra);
         } catch (Exception e) {
             e.printStackTrace();
         }

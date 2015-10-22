@@ -16,9 +16,10 @@ public class Main {
                 "    \"9477231234\"\n" +
                 "  ]\n" +
                 "}";
-        
+        String urlPra = "";
+
         try {
-          ideaBizAPIHandler.sendAPICall(url,requestMethod,body,"");
+          ideaBizAPIHandler.sendAPICall(url,requestMethod,body,urlPra);
         } catch (Exception e) {
             e.printStackTrace();
         }

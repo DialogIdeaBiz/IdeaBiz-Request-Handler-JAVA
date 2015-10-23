@@ -2,7 +2,7 @@ package lk.dialog.ideabiz.javaauth.model;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import lk.dialog.ideabiz.javaauth.model.Data.DataImp;
+import lk.dialog.ideabiz.javaauth.model.Data.DataInterface;
 import org.apache.commons.codec.binary.Base64;
 
 /**
@@ -10,17 +10,19 @@ import org.apache.commons.codec.binary.Base64;
  */
 public class Authenticator {
 
+
     String accessToken;
-     DataImp dataInterface;
+     DataInterface dataInterface;
      String body="grant_type=refresh_token&refresh_token=";
      String urlPara ="token";
      RequestHandller requestHandller;
      ApplicationInformation applicationInformation;
 
-    public Authenticator(){
-        dataInterface = new DataImp();
-        applicationInformation = dataInterface.loadPropFile();
-        requestHandller = new RequestHandller();
+    public Authenticator(DataInterface dataInterface){
+        this.dataInterface = dataInterface;
+      applicationInformation = dataInterface.loadPropFile();
+        setAccessToken(applicationInformation);
+      requestHandller = new RequestHandller();
          }
 
     public  boolean renewToken() {
@@ -49,7 +51,10 @@ public class Authenticator {
     }
 
     public String getAccessToken(){
-        return  applicationInformation.getAccessToken();
+        return  accessToken;
+    }
+    public void setAccessToken(ApplicationInformation applicationInformation) {
+        this.accessToken = applicationInformation.getAccessToken();
     }
 
 

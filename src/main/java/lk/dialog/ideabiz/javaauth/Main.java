@@ -1,5 +1,6 @@
 package lk.dialog.ideabiz.javaauth;
 
+import lk.dialog.ideabiz.javaauth.model.Data.DataImp;
 import lk.dialog.ideabiz.javaauth.model.RequestMethod;
 
 /**
@@ -10,19 +11,19 @@ public class Main {
     public static void main(String[] args) {
         String url = "https://ideabiz.lk/apicall/subscription/v1/subscribe";
         RequestMethod requestMethod = RequestMethod.POST;
-        IdeaBizAPIHandler ideaBizAPIHandler = new IdeaBizAPIHandler();
+        DataImp di = new DataImp();
+        IdeaBizAPIHandler ideaBizAPIHandler = new IdeaBizAPIHandler(di);
         String body = "{\n" +
                 "  \"msisdn\": [\n" +
-                "    \"9477231234\"\n" +
+                "    \"9477712345\"\n" +
                 "  ]\n" +
                 "}";
-        String urlPra = "";
 
         try {
-          ideaBizAPIHandler.sendAPICall(url,requestMethod,body,urlPra);
+
+          ideaBizAPIHandler.sendAPICall(url,requestMethod,body,"");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 }
-

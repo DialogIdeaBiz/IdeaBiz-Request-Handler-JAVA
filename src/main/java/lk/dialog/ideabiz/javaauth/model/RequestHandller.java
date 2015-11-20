@@ -29,13 +29,13 @@ public class RequestHandller {
             client.addFilter(new LoggingFilter(System.out));
 
             WebResource webResource = client
-                    .resource(url+"?"+body);
+                    .resource(url+body);
 
             ClientResponse response ;
             JsonParser parser = new JsonParser();
             switch (requestMethod) {
                 case GET:
-                   response = webResource.header("Content-Type","application/json").header("Accept", "application/json").header("Authorization:","Bearer "+key)
+                   response = webResource.header("Content-Type","application/json").header("Authorization:","Bearer "+key)
                            .post(ClientResponse.class);
 
                     output = response.getEntity(String.class);

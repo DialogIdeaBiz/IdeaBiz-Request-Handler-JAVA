@@ -12,7 +12,7 @@ public class Authenticator {
 
     String accessToken;
      DataImp dataInterface;
-     String body="grant_type=refresh_token&refresh_token=";
+     String body="?grant_type=refresh_token&refresh_token=";
      String urlPara ="token";
      RequestHandller requestHandller;
      ApplicationInformation applicationInformation;
